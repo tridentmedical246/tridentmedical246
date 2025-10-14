@@ -569,6 +569,40 @@
         .f-active {
             color: var(--primary-color) !important;
         }
+
+        /* Medical Certificates Section Styles */
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .certificate-card {
+            background: linear-gradient(135deg, var(--primary-color), #e65800);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 1rem;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .certificate-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--white);
+        }
+
+        .certificate-card p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
     </style>
     <!-- Calendly Inline Widget -->
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
@@ -584,6 +618,7 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#services">Services</a></li>
+                    <li><a href="#certificates">Medical Certificates</a></li>
                     <li><a href="#appointments">Appointments</a></li>
                     <li><a href="#resources">Patient Resources</a></li>
                     <li><a href="#contact">Contact</a></li>
@@ -634,13 +669,13 @@
             <div class="testimonial-slider">
                 <div class="testimonial-slide active">
                     <div class="card">
-                        <p>"The team at Trident Medical made me feel so comfortable during my visit. Dr. Powlett’s expertise and kindness are unmatched!"</p>
+                        <p>"The team at Trident Medical made me feel so comfortable during my visit. Dr. Powlett's expertise and kindness are unmatched!"</p>
                         <div class="author">— Jane Doe</div>
                     </div>
                 </div>
                 <div class="testimonial-slide">
                     <div class="card">
-                        <p>"I’ve been managing my diabetes with Dr. Thomas-Christie, and her guidance has truly changed my life for the better."</p>
+                        <p>"I've been managing my diabetes with Dr. Thomas-Christie, and her guidance has truly changed my life for the better."</p>
                         <div class="author">— John Smith</div>
                     </div>
                 </div>
@@ -683,7 +718,38 @@
                     <h3 class="service-header">Chronic Disease Management</h3>
                     <div class="card">Diabetes Management</div>
                     <div class="card">Hypertension Care</div>
+                    <div class="card">Cholesterol Monitoring</div>
+                    <div class="card">CKD Management</div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Medical Certificates Section -->
+    <section class="section" id="certificates" style="background-color: var(--light-bg);">
+        <div class="container">
+            <h2 class="section-title">Medical Certificates</h2>
+            <p class="section-subtitle">Professional medical certification services for work, school, travel, and licensing requirements.</p>
+            <div class="certificates-grid">
+                <div class="certificate-card">
+                    <h4>Back to School</h4>
+                    <p>Medical clearance certificates for school enrollment and sports participation.</p>
+                </div>
+                <div class="certificate-card">
+                    <h4>Health Certificates</h4>
+                    <p>General health fitness certificates for employment and immigration purposes.</p>
+                </div>
+                <div class="certificate-card">
+                    <h4>Food Badge</h4>
+                    <p>Medical certification for food handlers and restaurant workers compliance.</p>
+                </div>
+                <div class="certificate-card">
+                    <h4>Fit to Drive</h4>
+                    <p>Driving fitness assessments and medical clearance for license renewal.</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="#appointments" class="btn btn-primary">Book Certificate Assessment</a>
             </div>
         </div>
     </section>
@@ -771,6 +837,7 @@
                     <ul>
                         <li><a class="f-active" href="#home">Home</a></li><li><a href="#about">About Us</a></li>
                         <li><a class="f-active" href="#services">Services</a></li>
+                        <li><a class="f-active" href="#certificates">Medical Certificates</a></li>
                         <li><a class="f-active" href="#appointments">Book Appointment</a></li>
                         <li><a href="#resources">Patient Resources</a></li>
                     </ul>
