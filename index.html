@@ -42,6 +42,7 @@
             background-color: var(--white);
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden; /* Prevent horizontal overflow */
         }
 
         /* --- Utility Classes --- */
@@ -49,7 +50,7 @@
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1.5rem;
+            padding: 0 1rem; /* Reduced padding for smaller screens */
         }
 
         .btn {
@@ -218,7 +219,7 @@
             bottom: -8px;
         }
 
-        /* --- Open Day Side Banner (VISIBLE BY DEFAULT) --- */
+        /* --- Open Day Side Banner (VISIBLE BY DEFAULT for Desktop and Laptop) --- */
         .open-day-banner {
             position: fixed;
             top: 20vh;
@@ -609,43 +610,124 @@
         }
 
         /* --- Responsive Design --- */
-        @media (max-width: 992px) {
-            .contact-grid {
-                grid-template-columns: 1fr;
+        /* Desktop (≥1200px) - Base styles already cover this */
+        @media (max-width: 1199px) {
+            .container {
+                max-width: 960px;
             }
-            
-            .doctor-card img {
-                width: 200px;
-                height: 240px;
+
+            .hero h1 {
+                font-size: 3rem;
             }
-            
-            .calendly-section .btn-primary {
-                padding: 14px 32px;
+
+            .hero p {
                 font-size: 1.1rem;
             }
-            
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
+
+            .section-title {
+                font-size: 2.2rem;
             }
-            
-            .testimonial-slider {
-                max-width: 100%;
+
+            .doctors-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+
+            .doctor-card img {
+                width: 220px;
+                height: 260px;
+            }
+        }
+
+        /* Laptop (992px-1199px) */
+        @media (max-width: 1199px) and (min-width: 992px) {
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .certificates-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
 
             .open-day-banner {
-                width: 280px;
-                right: 10px;
+                width: 300px;
+                right: 15px;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .nav-links a {
+                font-size: 0.95rem;
+            }
+        }
+
+        /* Tablet (768px-991px) */
+        @media (max-width: 991px) {
+            .container {
+                max-width: 720px;
+                padding: 0 0.75rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .certificates-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+
+            .doctor-card img {
+                width: 200px;
+                height: 240px;
+            }
+
+            .calendly-section .btn-primary {
+                padding: 14px 32px;
+                font-size: 1.1rem;
+            }
+
+            .testimonial-slider {
+                max-width: 100%;
+            }
+
+            .open-day-banner,
+            .open-day-toggle {
+                display: none !important;
+            }
         }
 
-        @media (max-width: 768px) {
+        /* Mobile L (576px-767px) */
+        @media (max-width: 767px) {
             html {
                 font-size: 15px;
             }
+
+            .container {
+                max-width: 540px;
+                padding: 0 0.75rem;
+            }
+
             .main-nav {
                 position: fixed;
                 top: 0;
@@ -659,59 +741,88 @@
                 box-shadow: -5px 0 15px rgba(0,0,0,0.1);
                 transition: right 0.4s ease-in-out;
             }
+
             .main-nav.active {
                 right: 0;
             }
+
             .nav-links {
                 flex-direction: column;
                 text-align: center;
                 gap: 2.5rem;
             }
+
             .nav-links a {
                 font-size: 1.5rem;
             }
+
             .mobile-nav-toggle {
                 display: block;
             }
+
             body.nav-open {
                 overflow: hidden;
             }
+
             .mobile-nav-toggle.active .hamburger {
                 background: transparent;
             }
+
             .mobile-nav-toggle.active .hamburger::before {
                 transform: rotate(45deg);
                 top: 0;
             }
+
             .mobile-nav-toggle.active .hamburger::after {
                 transform: rotate(-45deg);
                 bottom: 0;
             }
-            
+
+            .hero {
+                min-height: 60vh;
+                padding: 4rem 0;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 0.9rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .certificates-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .doctors-grid {
+                grid-template-columns: 1fr;
+            }
+
             .doctor-card img {
                 width: 180px;
                 height: 220px;
             }
-            
+
             .calendly-section .btn-primary {
                 padding: 12px 24px;
                 font-size: 1rem;
                 width: 100%;
                 max-width: 300px;
             }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-            
+
             .service-header {
                 font-size: 1.2rem;
             }
-            
+
             .slider-controls {
                 margin-top: 1rem;
             }
-            
+
             .slider-controls button {
                 padding: 0.4rem 0.8rem;
                 font-size: 0.9rem;
@@ -722,8 +833,157 @@
                 display: none !important;
             }
 
-            .certificates-grid {
+            .footer-grid {
                 grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-col h4::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Mobile M (375px-575px) */
+        @media (max-width: 575px) {
+            html {
+                font-size: 14px;
+            }
+
+            .container {
+                padding: 0 0.5rem;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .section-subtitle {
+                font-size: 0.9rem;
+                max-width: 90%;
+            }
+
+            .hero {
+                min-height: 50vh;
+                padding: 3rem 0;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 0.85rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            .doctor-card {
+                padding: 1.5rem;
+            }
+
+            .doctor-card img {
+                width: 160px;
+                height: 200px;
+            }
+
+            .calendly-section .calendly-inline-widget {
+                height: 600px;
+                min-width: 100%;
+            }
+
+            .map-container iframe {
+                height: 300px;
+                width: 100%;
+            }
+        }
+
+        /* Mobile S (≤374px) */
+        @media (max-width: 374px) {
+            html {
+                font-size: 13px;
+            }
+
+            .container {
+                padding: 0 0.5rem;
+            }
+
+            .section {
+                padding: 2.5rem 0;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .section-subtitle {
+                font-size: 0.85rem;
+            }
+
+            .hero {
+                min-height: 40vh;
+                padding: 2.5rem 0;
+            }
+
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .hero p {
+                font-size: 0.8rem;
+            }
+
+            .btn {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+            }
+
+            .doctor-card img {
+                width: 140px;
+                height: 180px;
+            }
+
+            .calendly-section .btn-primary {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+                max-width: 100%;
+            }
+
+            .calendly-section .calendly-inline-widget {
+                height: 550px;
+                min-width: 100%;
+            }
+
+            .testimonial-slide .card {
+                min-height: 180px;
+                padding: 1rem;
+            }
+
+            .slider-controls button {
+                padding: 0.3rem 0.6rem;
+                font-size: 0.8rem;
+            }
+
+            .contact-info p,
+            .office-hours table {
+                font-size: 0.9rem;
+            }
+
+            .map-container iframe {
+                height: 250px;
+                width: 100%;
             }
         }
 
@@ -735,7 +995,7 @@
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </head>
 <body>
-    <!-- Open Day Side Banner - VISIBLE BY DEFAULT -->
+    <!-- Open Day Side Banner - VISIBLE BY DEFAULT for Desktop and Laptop -->
     <button class="open-day-toggle" id="openDayToggle" title="Hide Open Day Banner">
         <i class="fas fa-times"></i>
     </button>
@@ -909,7 +1169,7 @@
             <div class="calendly-section">
                 <div class="calendly-inline-widget" 
                      data-url="https://calendly.com/tridentmedical246"
-                     style="min-width:320px;height:700px;"></div>
+                     style="min-width:100%;height:700px;"></div>
             </div>
             <div style="text-align: center; margin-top: 2rem;">
                 <p style="color: var(--text-light); max-width: 600px; margin: 0 auto;">
@@ -985,7 +1245,8 @@
                 <div class="footer-col">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a class="f-active" href="#home">Home</a></li><li><a href="#about">About Us</a></li>
+                        <li><a class="f-active" href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
                         <li><a class="f-active" href="#services">Services</a></li>
                         <li><a class="f-active" href="#certificates">Medical Certificates</a></li>
                         <li><a class="f-active" href="#appointments">Book Appointment</a></li>
@@ -1088,8 +1349,10 @@
         const openDayBanner = document.getElementById('openDayBanner');
         const closeBanner = document.getElementById('closeBanner');
 
-        // Banner is visible by default
-        openDayBanner.classList.remove('hidden');
+        // Banner is visible by default for larger screens
+        if (window.innerWidth >= 992) {
+            openDayBanner.classList.remove('hidden');
+        }
 
         openDayToggle.addEventListener('click', () => {
             openDayBanner.classList.toggle('hidden');
