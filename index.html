@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trident Medical</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         /* --- CSS Reset & Base Styles --- */
         *,
@@ -215,6 +216,114 @@
 
         .hamburger::after {
             bottom: -8px;
+        }
+
+        /* --- Open Day Side Banner (VISIBLE BY DEFAULT) --- */
+        .open-day-banner {
+            position: fixed;
+            top: 20vh;
+            right: 20px;
+            width: 320px;
+            max-height: 60vh;
+            background: linear-gradient(135deg, var(--primary-color), #e65800);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            z-index: 999;
+            transition: all 0.5s ease;
+            overflow-y: auto;
+        }
+
+        .open-day-banner.hidden {
+            right: -350px;
+            opacity: 0;
+        }
+
+        .open-day-banner h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .open-day-banner .highlight {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .open-day-banner ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .open-day-banner ul li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .open-day-banner ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .open-day-toggle {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 1000;
+            transform: translateY(-50%);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .open-day-toggle:hover {
+            background: #e65800;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        /* --- Video Icon Styles --- */
+        .video-icon {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-bottom: 1rem;
+            padding: 10px;
+            background: rgba(255, 98, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .video-icon:hover {
+            color: #e65800;
+            transform: scale(1.05);
+            background: rgba(255, 98, 0, 0.2);
+        }
+
+        .video-icon i {
+            font-size: 1.5rem;
         }
 
         /* --- Main Content Sections --- */
@@ -465,6 +574,40 @@
             padding: 1.5rem 0;
         }
 
+        /* Medical Certificates Section Styles */
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .certificate-card {
+            background: linear-gradient(135deg, var(--primary-color), #e65800);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 1rem;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .certificate-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--white);
+        }
+
+        .certificate-card p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+
         /* --- Responsive Design --- */
         @media (max-width: 992px) {
             .contact-grid {
@@ -487,6 +630,15 @@
             
             .testimonial-slider {
                 max-width: 100%;
+            }
+
+            .open-day-banner {
+                width: 280px;
+                right: 10px;
+            }
+
+            .certificates-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -564,50 +716,46 @@
                 padding: 0.4rem 0.8rem;
                 font-size: 0.9rem;
             }
+
+            .open-day-banner,
+            .open-day-toggle {
+                display: none !important;
+            }
+
+            .certificates-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .f-active {
             color: var(--primary-color) !important;
-        }
-
-        /* Medical Certificates Section Styles */
-        .certificates-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .certificate-card {
-            background: linear-gradient(135deg, var(--primary-color), #e65800);
-            color: var(--white);
-            text-align: center;
-            padding: 2rem 1rem;
-            border-radius: var(--border-radius);
-            transition: var(--transition);
-        }
-
-        .certificate-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .certificate-card h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            color: var(--white);
-        }
-
-        .certificate-card p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-            line-height: 1.4;
         }
     </style>
     <!-- Calendly Inline Widget -->
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </head>
 <body>
+    <!-- Open Day Side Banner - VISIBLE BY DEFAULT -->
+    <button class="open-day-toggle" id="openDayToggle" title="Hide Open Day Banner">
+        <i class="fas fa-times"></i>
+    </button>
+    
+    <div class="open-day-banner" id="openDayBanner">
+        <button id="closeBanner" style="position: absolute; top: 10px; right: 10px; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center;">×</button>
+        <h4>🩺 Open Day Event</h4>
+        <div class="highlight">Every 1st Saturday of the Month</div>
+        <p><strong>FREE Health Checks:</strong></p>
+        <ul>
+            <li>Blood Sugar Testing</li>
+            <li>Blood Pressure Screening</li>
+            <li>Weight & BMI Assessment</li>
+        </ul>
+        <p><strong>Plus:</strong> 10-minute consultation with our doctors</p>
+        <div style="text-align: center; margin-top: 1rem;">
+            <a href="#appointments" class="btn" style="background: var(--white); color: var(--primary-color); font-size: 0.9rem; padding: 8px 16px;">Book Your Slot</a>
+        </div>
+    </div>
+
     <header class="main-header">
         <div class="container">
             <a href="#" class="logo-link">
@@ -762,8 +910,6 @@
                 <div class="calendly-inline-widget" 
                      data-url="https://calendly.com/tridentmedical246"
                      style="min-width:320px;height:700px;"></div>
-                <!-- Replace "your-username" with your actual Calendly username -->
-                <!-- You can customize the colors to match your theme -->
             </div>
             <div style="text-align: center; margin-top: 2rem;">
                 <p style="color: var(--text-light); max-width: 600px; margin: 0 auto;">
@@ -805,6 +951,10 @@
             <div class="contact-grid">
                 <div class="contact-info">
                     <h3>Contact Information</h3>
+                    <div class="video-icon" id="videoIcon">
+                        <i class="fas fa-video"></i>
+                        <span>Watch Our Facility Tour</span>
+                    </div>
                     <p><strong>Address:</strong> 1 Sargeant's Village Tenantry Rd, Bridgetown, Christ Church, Barbados</p>
                     <p><strong>Phone:</strong> (246) 537-9259</p>
                     <p><strong>Email:</strong> tridentmedical246@gmail.com</p>
@@ -932,6 +1082,40 @@
 
         // Auto-slide every 5 seconds
         setInterval(nextSlide, 5000);
+
+        // Open Day Side Banner Toggle
+        const openDayToggle = document.getElementById('openDayToggle');
+        const openDayBanner = document.getElementById('openDayBanner');
+        const closeBanner = document.getElementById('closeBanner');
+
+        // Banner is visible by default
+        openDayBanner.classList.remove('hidden');
+
+        openDayToggle.addEventListener('click', () => {
+            openDayBanner.classList.toggle('hidden');
+            const icon = openDayToggle.querySelector('i');
+            if (openDayBanner.classList.contains('hidden')) {
+                icon.className = 'fas fa-plus-circle';
+                openDayToggle.title = 'Show Open Day Banner';
+            } else {
+                icon.className = 'fas fa-times';
+                openDayToggle.title = 'Hide Open Day Banner';
+            }
+        });
+
+        closeBanner.addEventListener('click', () => {
+            openDayBanner.classList.add('hidden');
+            openDayToggle.querySelector('i').className = 'fas fa-plus-circle';
+            openDayToggle.title = 'Show Open Day Banner';
+        });
+
+        // Video Icon Click Handler
+        const videoIcon = document.getElementById('videoIcon');
+        videoIcon.addEventListener('click', () => {
+            // Replace with your actual YouTube video ID
+            const videoUrl = 'https://www.youtube.com/watch?v=YOUR_VIDEO_ID';
+            window.open(videoUrl, '_blank');
+        });
     </script>
 </body>
 </html>
