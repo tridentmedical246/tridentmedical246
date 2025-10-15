@@ -90,7 +90,7 @@
 
         .card {
             background: var(--white);
-            border-radius: var(--border-radius);
+            border-radius: var(---border-radius);
             box-shadow: var(--shadow);
             padding: 1.5rem;
             transition: var(--transition);
@@ -337,6 +337,45 @@
 
         .hidden {
             display: none;
+        }
+
+        /* --- Partnerships Section Styles --- */
+        .partnerships-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .partnership-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .partnership-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .partnership-card img {
+            max-width: 150px;
+            height: auto;
+            border-radius: var(--border-radius);
+            margin-bottom: 1rem;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .partnership-card h4 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .partnership-card p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
         }
 
         /* --- Main Content Sections --- */
@@ -660,6 +699,10 @@
                 grid-template-columns: repeat(3, 1fr);
             }
 
+            .partnerships-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
             .open-day-banner {
                 width: 300px;
                 right: 15px;
@@ -709,6 +752,10 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
+            .partnerships-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
             .doctor-card img {
                 width: 200px;
                 height: 240px;
@@ -730,6 +777,10 @@
 
             .video-card iframe {
                 height: 180px;
+            }
+
+            .partnership-card img {
+                max-width: 120px;
             }
         }
 
@@ -815,6 +866,10 @@
                 grid-template-columns: 1fr;
             }
 
+            .partnerships-grid {
+                grid-template-columns: 1fr;
+            }
+
             .doctors-grid {
                 grid-template-columns: 1fr;
             }
@@ -861,6 +916,10 @@
 
             .video-card iframe {
                 height: 160px;
+            }
+
+            .partnership-card img {
+                max-width: 100px;
             }
         }
 
@@ -931,6 +990,10 @@
 
             .video-card iframe {
                 height: 140px;
+            }
+
+            .partnership-card img {
+                max-width: 90px;
             }
         }
 
@@ -1013,6 +1076,10 @@
             .video-card iframe {
                 height: 120px;
             }
+
+            .partnership-card img {
+                max-width: 80px;
+            }
         }
 
         .f-active {
@@ -1039,6 +1106,8 @@
             <li>Weight & BMI Assessment</li>
         </ul>
         <p><strong>Plus:</strong> 10-minute consultation with our doctors</p>
+        <div style="text-align: center; margin-top: 1rem;">
+        </div>
     </div>
 
     <header class="main-header">
@@ -1202,30 +1271,6 @@
         </div>
     </section>
 
-    <!-- <section class="section" id="resources">
-        <div class="container">
-            <h2 class="section-title">Patient Resources</h2>
-            <p class="section-subtitle">Helpful information and forms for our patients.</p>
-            <div class="resources-grid">
-                <div class="card">
-                    <h3>New Patient Forms</h3>
-                    <p>Download and complete our new patient registration forms before your first visit.</p>
-                    <a href="#" class="btn btn-secondary">Download Forms</a>
-                </div>
-                <div class="card">
-                    <h3>Health Education</h3>
-                    <p>Access articles, videos, and resources on various health topics.</p>
-                    <a href="#" class="btn btn-secondary">Learn More</a>
-                </div>
-                <div class="card">
-                    <h3>Online Portal</h3>
-                    <p>View test results, request prescription refills, and communicate securely with your doctor.</p>
-                    <a href="#" class="btn btn-secondary">Access Portal</a>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
     <section class="section" id="contact">
         <div class="container">
             <h2 class="section-title">Contact Us</h2>
@@ -1269,6 +1314,30 @@
             </div>
             <div class="map-container" style="margin-top: 3rem;">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3817.714693134686!2d-59.57212538554858!3d13.07762699032692!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c43b8f7f7f7f7f7%3A0x9c43b8f7f7f7f7f7!2s1+Sargeant%27s+Village+Tenantry+Rd%2C+Bridgetown%2C+Christ+Church%2C+Barbados!5e0!3m2!1sen!2sus!4v1635781234567!5m2!1sen!2sus" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+
+            <!-- Partnerships Section -->
+            <div class="partnerships-section" style="margin-top: 4rem;">
+                <h2 class="section-title">Our Partnerships</h2>
+                <p class="section-subtitle">Collaborating for comprehensive wellness: Integrating medical care with therapy and spa services.</p>
+                <div class="partnerships-grid">
+                    <div class="card partnership-card">
+                        <img src="Islandtherapeutics.jpeg" alt="Island Therapeutics Logo">
+                        <h4>Island Therapeutics</h4>
+                        <p>Partnering with Island Therapeutics for advanced physical therapy and rehabilitation programs. Our patients receive seamless referrals for post-injury recovery and mobility enhancement, ensuring holistic healing.</p>
+                    </div>
+                    <div class="card partnership-card">
+                        <i class="fas fa-spa"></i>
+                        <h4>Renew Spa</h4>
+                        <p>In collaboration with Renew Spa, we offer integrated wellness treatments including therapeutic massages and stress relief therapies. Complementing our medical services to promote overall well-being and relaxation.</p>
+                    </div>
+                    <div class="card partnership-card">
+                        <i class="fas fa-handshake"></i>
+                        <h4>Integrated Care Network</h4>
+                        <p>Through our broader network, we connect with local specialists for multidisciplinary care, from diagnostics to ongoing support, tailored to each patient's unique needs.</p>
+                        <!-- <a href="#" class="btn btn-secondary">Learn More</a> -->
+                    </div>
+                </div>
             </div>
         </div>
     </section>
