@@ -327,57 +327,16 @@
             font-size: 1.5rem;
         }
 
-        /* --- Video Modal Styles --- */
-        .video-modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
+        /* --- Video Card Styles --- */
+        .video-card iframe {
             width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-            transition: var(--transition);
-        }
-
-        .video-modal-content {
-            position: relative;
-            background: var(--white);
-            padding: 20px;
+            height: 200px;
+            border: none;
             border-radius: var(--border-radius);
-            max-width: 800px;
-            width: 90%;
-            box-shadow: var(--shadow-lg);
         }
 
-        .close-video-modal {
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            background: var(--primary-color);
-            color: var(--white);
-            font-size: 1.5rem;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .close-video-modal:hover {
-            background: #e65800;
-            transform: scale(1.1);
-        }
-
-        .video-modal video {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
+        .hidden {
+            display: none;
         }
 
         /* --- Main Content Sections --- */
@@ -769,9 +728,8 @@
                 display: none !important;
             }
 
-            .video-modal-content {
-                width: 95%;
-                padding: 10px;
+            .video-card iframe {
+                height: 180px;
             }
         }
 
@@ -901,9 +859,8 @@
                 transform: translateX(-50%);
             }
 
-            .video-modal-content {
-                width: 95%;
-                padding: 10px;
+            .video-card iframe {
+                height: 160px;
             }
         }
 
@@ -972,9 +929,8 @@
                 width: 100%;
             }
 
-            .video-modal-content {
-                width: 95%;
-                padding: 10px;
+            .video-card iframe {
+                height: 140px;
             }
         }
 
@@ -1054,9 +1010,8 @@
                 width: 100%;
             }
 
-            .video-modal-content {
-                width: 95%;
-                padding: 10px;
+            .video-card iframe {
+                height: 120px;
             }
         }
 
@@ -1250,6 +1205,30 @@
         </div>
     </section>
 
+    <!-- <section class="section" id="resources">
+        <div class="container">
+            <h2 class="section-title">Patient Resources</h2>
+            <p class="section-subtitle">Helpful information and forms for our patients.</p>
+            <div class="resources-grid">
+                <div class="card">
+                    <h3>New Patient Forms</h3>
+                    <p>Download and complete our new patient registration forms before your first visit.</p>
+                    <a href="#" class="btn btn-secondary">Download Forms</a>
+                </div>
+                <div class="card">
+                    <h3>Health Education</h3>
+                    <p>Access articles, videos, and resources on various health topics.</p>
+                    <a href="#" class="btn btn-secondary">Learn More</a>
+                </div>
+                <div class="card">
+                    <h3>Online Portal</h3>
+                    <p>View test results, request prescription refills, and communicate securely with your doctor.</p>
+                    <a href="#" class="btn btn-secondary">Access Portal</a>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
     <section class="section" id="contact">
         <div class="container">
             <h2 class="section-title">Contact Us</h2>
@@ -1264,6 +1243,18 @@
                     <div class="video-icon" id="videoIcon2">
                         <i class="fas fa-video"></i>
                         <span>2nd Video Directions</span>
+                    </div>
+                    <div class="card video-card hidden" id="videoCard">
+                        <h4 style="color: var(--secondary-color); margin-bottom: 1rem;">Video Directions</h4>
+                        <iframe src="https://www.youtube.com/embed/iuDshMjBWtw" 
+                                title="Trident Medical Video Directions 1" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen></iframe>
+                        <h4 style="color: var(--secondary-color); margin: 1rem 0;">Additional Video Directions</h4>
+                        <iframe src="https://www.youtube.com/embed/SRZA0BvnID8" 
+                                title="Trident Medical Video Directions 2" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen></iframe>
                     </div>
                     <p><strong>Address:</strong> 1 Sargeant's Village Tenantry Rd, Bridgetown, Christ Church, Barbados</p>
                     <p><strong>Phone:</strong> (246) 537-9259</p>
@@ -1284,17 +1275,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Video Modal -->
-    <div id="videoModal" class="video-modal">
-        <div class="video-modal-content">
-            <span class="close-video-modal">&times;</span>
-            <video id="videoPlayer" width="100%" controls>
-                <source id="videoSource" src="" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-    </div>
 
     <footer class="main-footer">
         <div class="container">
@@ -1433,42 +1413,17 @@
             openDayToggle.title = 'Show Open Day Banner';
         });
 
-        // Video Icon Click Handlers
+        // Video Card Toggle
         const videoIcon1 = document.getElementById('videoIcon1');
         const videoIcon2 = document.getElementById('videoIcon2');
-        const videoModal = document.getElementById('videoModal');
-        const videoPlayer = document.getElementById('videoPlayer');
-        const videoSource = document.getElementById('videoSource');
-        const closeVideoModal = document.querySelector('.close-video-modal');
+        const videoCard = document.getElementById('videoCard');
 
         videoIcon1.addEventListener('click', () => {
-            videoSource.src = 'video1.mp4'; // Path to first video
-            videoPlayer.load(); // Reload video with new source
-            videoModal.style.display = 'flex';
-            videoPlayer.play(); // Auto-play the video
+            videoCard.classList.toggle('hidden');
         });
 
         videoIcon2.addEventListener('click', () => {
-            videoSource.src = 'video2.mp4'; // Path to second video
-            videoPlayer.load(); // Reload video with new source
-            videoModal.style.display = 'flex';
-            videoPlayer.play(); // Auto-play the video
-        });
-
-        // Close the video modal
-        closeVideoModal.addEventListener('click', () => {
-            videoModal.style.display = 'none';
-            videoPlayer.pause(); // Pause the video when closing
-            videoPlayer.currentTime = 0; // Reset video to start
-        });
-
-        // Close modal when clicking outside the video
-        videoModal.addEventListener('click', (e) => {
-            if (e.target === videoModal) {
-                videoModal.style.display = 'none';
-                videoPlayer.pause();
-                videoPlayer.currentTime = 0;
-            }
+            videoCard.classList.toggle('hidden');
         });
     </script>
 </body>
