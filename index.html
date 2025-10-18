@@ -219,7 +219,7 @@
             bottom: -8px;
         }
 
-        /* --- Open Day Side Banner (VISIBLE BY DEFAULT for Desktop and Laptop) --- */
+        /* --- Open Day Side Banner --- */
         .open-day-banner {
             position: fixed;
             top: 20vh;
@@ -770,17 +770,52 @@
                 max-width: 100%;
             }
 
-            .open-day-banner,
-            .open-day-toggle {
-                display: none !important;
-            }
-
             .video-card iframe {
                 height: 180px;
             }
 
             .partnership-card img {
                 max-width: 120px;
+            }
+
+            /* Open Day Banner for Tablet */
+            .open-day-banner {
+                position: fixed;
+                bottom: 20px;
+                top: auto;
+                right: 50%;
+                transform: translateX(50%);
+                width: 90%;
+                max-width: 350px;
+                padding: 1.5rem;
+                font-size: 0.9rem;
+                border-radius: var(--border-radius);
+                box-shadow: var(--shadow-lg);
+                z-index: 999;
+            }
+
+            .open-day-toggle {
+                display: flex !important;
+                bottom: 80px;
+                top: auto;
+                right: 50%;
+                transform: translateX(50%);
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .open-day-banner h4 {
+                font-size: 1.1rem;
+            }
+
+            .open-day-banner .highlight {
+                font-size: 0.85rem;
+                padding: 0.75rem;
+            }
+
+            .open-day-banner ul li {
+                font-size: 0.85rem;
             }
         }
 
@@ -899,11 +934,6 @@
                 font-size: 0.9rem;
             }
 
-            .open-day-banner,
-            .open-day-toggle {
-                display: none !important;
-            }
-
             .footer-grid {
                 grid-template-columns: 1fr;
                 text-align: center;
@@ -920,6 +950,46 @@
 
             .partnership-card img {
                 max-width: 100px;
+            }
+
+            /* Open Day Banner for Mobile L */
+            .open-day-banner {
+                position: fixed;
+                bottom: 20px;
+                top: auto;
+                right: 50%;
+                transform: translateX(50%);
+                width: 90%;
+                max-width: 350px;
+                padding: 1.5rem;
+                font-size: 0.9rem;
+                border-radius: var(--border-radius);
+                box-shadow: var(--shadow-lg);
+                z-index: 999;
+            }
+
+            .open-day-toggle {
+                display: flex !important;
+                bottom: 80px;
+                top: auto;
+                right: 50%;
+                transform: translateX(50%);
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .open-day-banner h4 {
+                font-size: 1.1rem;
+            }
+
+            .open-day-banner .highlight {
+                font-size: 0.85rem;
+                padding: 0.75rem;
+            }
+
+            .open-day-banner ul li {
+                font-size: 0.85rem;
             }
         }
 
@@ -994,6 +1064,34 @@
 
             .partnership-card img {
                 max-width: 90px;
+            }
+
+            /* Open Day Banner for Mobile M */
+            .open-day-banner {
+                width: 90%;
+                max-width: 280px;
+                bottom: 15px;
+                padding: 1rem;
+                font-size: 0.8rem;
+            }
+
+            .open-day-toggle {
+                width: 35px;
+                height: 35px;
+                bottom: 70px;
+                font-size: 0.9rem;
+            }
+
+            .open-day-banner h4 {
+                font-size: 1rem;
+            }
+
+            .open-day-banner .highlight {
+                font-size: 0.8rem;
+            }
+
+            .open-day-banner ul li {
+                font-size: 0.8rem;
             }
         }
 
@@ -1080,6 +1178,35 @@
             .partnership-card img {
                 max-width: 80px;
             }
+
+            /* Open Day Banner for Mobile S */
+            .open-day-banner {
+                width: 90%;
+                max-width: 260px;
+                bottom: 10px;
+                padding: 0.8rem;
+                font-size: 0.75rem;
+            }
+
+            .open-day-toggle {
+                width: 30px;
+                height: 30px;
+                bottom: 60px;
+                font-size: 0.8rem;
+            }
+
+            .open-day-banner h4 {
+                font-size: 0.9rem;
+            }
+
+            .open-day-banner .highlight {
+                font-size: 0.75rem;
+                padding: 0.5rem;
+            }
+
+            .open-day-banner ul li {
+                font-size: 0.75rem;
+            }
         }
 
         .f-active {
@@ -1090,19 +1217,18 @@
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </head>
 <body>
-    <!-- Open Day Side Banner - VISIBLE BY DEFAULT for Desktop and Laptop -->
+    <!-- Open Day Side Banner - Visible on All Devices -->
     <button class="open-day-toggle" id="openDayToggle" title="Hide Open Day Banner">
         <i class="fas fa-times"></i>
     </button>
     
     <div class="open-day-banner" id="openDayBanner">
-        <button id="closeBanner" style="position: absolute; top: 10px; right: 10px; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center;">×</button>
+        <button id="closeBanner" style="position: absolute; top: 10px; right: 10px; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center;" aria-label="Close Open Day Banner">×</button>
         <h4>🩺 Open Day Event</h4>
         <div class="highlight">Every first Saturday of the Month</div>
         <p><strong>FREE Health Checks:</strong></p>
         <ul>
             <li>Blood Sugar Testing</li>
-            <li>Blood Pressure Screening</li>
             <li>Blood Pressure Screening</li>
             <li>Weight & BMI Assessment</li>
         </ul>
@@ -1478,10 +1604,8 @@
         const openDayBanner = document.getElementById('openDayBanner');
         const closeBanner = document.getElementById('closeBanner');
 
-        // Banner is visible by default for larger screens
-        if (window.innerWidth >= 992) {
-            openDayBanner.classList.remove('hidden');
-        }
+        // Ensure banner is visible by default on all screens
+        openDayBanner.classList.remove('hidden');
 
         openDayToggle.addEventListener('click', () => {
             openDayBanner.classList.toggle('hidden');
