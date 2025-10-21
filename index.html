@@ -153,13 +153,12 @@
             width: auto;
         }
 
-
-        .Txt{
-            color: var( --secondary-color);
+        .Txt {
+            color: var(--secondary-color);
             font-weight: bold;
             margin-left: 70px;
         }
-        
+
         .nav-links {
             display: flex;
             list-style: none;
@@ -352,7 +351,9 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
             margin-top: 2rem;
-            margin-left:300px;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 960px; /* Ensures grid doesn't stretch too wide */
         }
 
         .partnership-card {
@@ -698,6 +699,10 @@
                 width: 220px;
                 height: 260px;
             }
+
+            .partnerships-grid {
+                max-width: 720px;
+            }
         }
 
         /* Laptop (992px-1199px) */
@@ -712,6 +717,7 @@
 
             .partnerships-grid {
                 grid-template-columns: repeat(3, 1fr);
+                max-width: 720px;
             }
 
             .open-day-banner {
@@ -765,6 +771,7 @@
 
             .partnerships-grid {
                 grid-template-columns: repeat(2, 1fr);
+                max-width: 540px;
             }
 
             .doctor-card img {
@@ -915,7 +922,9 @@
 
             .partnerships-grid {
                 grid-template-columns: 1fr;
-                margin-right
+                max-width: 100%;
+                margin-left: auto;
+                margin-right: auto;
             }
 
             .doctors-grid {
@@ -1258,8 +1267,7 @@
             <a href="#" class="logo-link">
                 <img src="tridentmedical.png" alt="Trident Medical Logo" class="logo-img">
             </a>
-            <p class="Txt" >Trident Medical</p>
-
+            <p class="Txt">Trident Medical</p>
             <nav class="main-nav" id="mainNav">
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
